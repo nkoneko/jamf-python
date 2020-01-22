@@ -18,7 +18,7 @@ class Token(object):
     self._corp = corp
   def get(self):
     now = datetime.now()
-    if not self._token or (not + timedelta(minutes=3)) >= self._expires:
+    if not self._token or (now + timedelta(minutes=3)) >= self._expires:
       res = requests.post(f'https://{self._corp}.jamfcloud.com/uapi/auth/tokens', auth=(self._user_id, self._password))
       resd = res.json()
       self._token = resd['token']
