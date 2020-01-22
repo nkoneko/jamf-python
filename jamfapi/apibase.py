@@ -71,7 +71,7 @@ class JamfAPI(object):
         data = self._prep_postparam(_params, _headers.get('Content-Type', None))
         res = requests.put(_url, data=data, headers=_headers)
       else:
-        res = requests.post(_url, headers=_headers)
+        res = requests.put(_url, headers=_headers)
       return res
     return self._invoke(kwargs, _callback)
 
@@ -81,7 +81,7 @@ class JamfAPI(object):
         data = self._prep_postparam(_params, _headers.get('Content-Type', None))
         res = requests.delete(_url, data=data, headers=_headers)
       else:
-        res = requests.post(_url, headers=_headers)
+        res = requests.delete(_url, headers=_headers)
       return res
     return self._invoke(kwargs, _callback)
 
